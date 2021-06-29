@@ -152,7 +152,7 @@ public class Paypal_Checkout extends SetupClass {
 		
 		    try
 		{
-			WebElement cp_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[4]/div/div[3]/div[1]/div[1]/form[1]/div/div[2]/label")));
+			WebElement cp_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[4]/div/div[2]/div[1]/div[1]/form[1]/div/div[2]/label")));
 			Thread.sleep(2000);
 		    cp_btn.click();
 		    Thread.sleep(3000);
