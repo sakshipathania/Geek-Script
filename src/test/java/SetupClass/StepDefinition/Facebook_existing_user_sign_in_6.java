@@ -81,7 +81,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	@Then("^user download a paid product vi$")
 	public void user_download_a_paid_product_vi() throws Throwable {
 		
-		driver.get("https://www.slidegeeks.com/business/product/up-skilling-vector-with-progress-in-content-writing-ppt-powerpoint-presentation-styles-professional-pdf");
+		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
 		Thread.sleep(9000);
 		 
 		 WebElement download_btn = driver.findElement(By.xpath("//*[@class=\"btn-download pg-button pg-addtocart pg-green-background-btn\"]"));
