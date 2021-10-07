@@ -152,7 +152,7 @@ public class CO_Checkout extends SetupClass {
 		 try {
 		Thread.sleep(1400);
 		// select 2co option
-		WebElement co_btn  =  wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-checkout-billing-payment-form > div > div:nth-child(1) > label")));
+		WebElement co_btn  =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='pg-stripe']")));
 		Thread.sleep(2000);
 	         co_btn.click();
 		Thread.sleep(5000);
