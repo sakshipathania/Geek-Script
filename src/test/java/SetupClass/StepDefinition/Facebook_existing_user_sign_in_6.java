@@ -84,7 +84,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
 		Thread.sleep(9000);
 		 
-		 WebElement download_btn = driver.findElement(By.xpath("//*[@class=\"btn-download pg-button pg-addtocart pg-green-background-btn\"]"));
+		 WebElement download_btn = driver.findElement(By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn vwo_subscribe_click']"));
 		 Thread.sleep(5000);
 		js.executeScript("arguments[0].scrollIntoView();",download_btn);
 		Thread.sleep(5000);
