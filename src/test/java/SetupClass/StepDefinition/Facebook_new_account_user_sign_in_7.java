@@ -55,9 +55,13 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		   }
 		  }
 	       Thread.sleep(5000);
-	       
-	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[1]/div/input")));
+		// driver.findElement(By.xpath("//input[@id='email']")).clear();
+	       String fb_url = driver.getCurrentUrl();
+	       System.out.println("fb_url =" +fb_url);
+	   
+	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 		Thread.sleep(3000);
+		fb_email.clear();
                fb_email.sendKeys("amw.vrushali@gmail.com");
           Thread.sleep(3000);
                WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[2]/div/input")));
@@ -91,7 +95,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		js.executeScript("arguments[0].scrollIntoView();",Download);
 		Download.click();
 		Thread.sleep(3000);
-		 WebElement download_btn = driver.findElement(By.xpath("//*[@class=\"btn-download pg-button pg-addtocart pg-green-background-btn\"]"));
+		 WebElement download_btn = driver.findElement(By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn vwo_subscribe_click']"));
 		 Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();",Download);
 		Thread.sleep(3000);
