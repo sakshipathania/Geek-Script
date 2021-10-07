@@ -61,7 +61,7 @@ public class Paypal_Checkout extends SetupClass {
 		Thread.sleep(3000);
 		driver.get("https://www.slidegeeks.com/register");
 		Thread.sleep(3000);
-		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_name1")));
+		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.name("jform[name1]")));
 		 Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
 		 Thread.sleep(3000);
@@ -88,7 +88,7 @@ public class Paypal_Checkout extends SetupClass {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 		Thread.sleep(2000);
 		
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_email1")));
+		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.name("jform[email1]")));
 		 Thread.sleep(3000);
 		 new_email.sendKeys(full_email);
 		 Thread.sleep(3000);
