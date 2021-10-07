@@ -152,6 +152,8 @@ public class CO_Checkout extends SetupClass {
 		 try {
 		Thread.sleep(1400);
 		// select 2co option
+			 String radio_button_url = driver.getCurrentUrl(); 
+				System.out.println("radio_button_url = " + radio_button_url);
 		WebElement co_btn  =   driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]")));
 		Thread.sleep(2000);
 	         co_btn.click();
