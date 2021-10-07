@@ -152,7 +152,7 @@ public class CO_Checkout extends SetupClass {
 		 try {
 		Thread.sleep(1400);
 		// select 2co option
-		WebElement co_btn  =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='pg-stripe']")));
+		WebElement co_btn  =   driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]")));
 		Thread.sleep(2000);
 	         co_btn.click();
 		Thread.sleep(5000);
