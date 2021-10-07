@@ -152,7 +152,7 @@ public class Paypal_Checkout extends SetupClass {
 		
 		    try
 		{
-			WebElement cp_btn  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pg-paypal_subscription']")));
+			WebElement cp_btn  = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/input[1]"));
 			Thread.sleep(2000);
 		    cp_btn.click();
 		    Thread.sleep(3000);
