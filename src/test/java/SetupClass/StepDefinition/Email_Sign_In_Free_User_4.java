@@ -36,7 +36,7 @@ public class Email_Sign_In_Free_User_4 extends SetupClass {
 		//driver.get("https://www.slidegeeks.com/account");
 	    //   Thread.sleep(5000);
 	       
-	        WebElement old_paid_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div[2]/div/form/div[1]/input")));
+	        WebElement old_paid_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='E-mail Address']")));
                old_paid_email.sendKeys("Slidegeekstesting1@gmail.com");
           Thread.sleep(3000);
                WebElement old_paid_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div[2]/div/form/div[2]/input")));
