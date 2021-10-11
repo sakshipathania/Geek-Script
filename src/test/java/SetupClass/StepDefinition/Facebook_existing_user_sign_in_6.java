@@ -68,7 +68,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	       
 	       Thread.sleep(3000);
 	     //  WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[3]/label[2]/input")));
-		 WebElement fb_login_btn = driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[3]/label[2]/input"));
+		 WebElement fb_login_btn = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]"));
+		
 		//Thread.sleep(3000);
 	       fb_login_btn.click();
 		
