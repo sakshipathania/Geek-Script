@@ -60,11 +60,11 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	       System.out.println("fb_url =" +fb_url);
 	   
 	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
-		Thread.sleep(3000);
+	//	Thread.sleep(3000);
 		fb_email.clear();
                fb_email.sendKeys("amw.vrushali@gmail.com");
           Thread.sleep(3000);
-               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[2]/div/input")));
+               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
 		Thread.sleep(3000);
                fb_pass.sendKeys("vrushali@786");
 	       
