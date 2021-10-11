@@ -68,9 +68,9 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		Thread.sleep(3000);
                fb_pass.sendKeys("vrushali@786");
 	       
-	       Thread.sleep(5000);//input[@name='login']
-	      WebElement fb_login_btn=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='login']")));
-		//WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
+	       Thread.sleep(5000);
+	    //  WebElement fb_login_btn=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='login']")));
+		WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
 		Thread.sleep(3000);
 	       fb_login_btn.click();
 		
