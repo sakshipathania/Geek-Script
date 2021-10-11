@@ -56,17 +56,19 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		  }
 	       Thread.sleep(5000);
 	       
-	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[1]/div/input")));
-		Thread.sleep(3000);
+	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
+		//Thread.sleep(3000);
+		fb_email.clear();
                fb_email.sendKeys("slidetech.qa@gmail.com");
           Thread.sleep(3000);
-               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[2]/div/input")));
-		Thread.sleep(3000);
+               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
+		//Thread.sleep(3000);
+		fb_pass.clear();
                fb_pass.sendKeys("himanshi@123");
 	       
 	       Thread.sleep(3000);
 	       WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div[2]/div[1]/form/div/div[3]/label[2]/input")));
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	       fb_login_btn.click();
 		
 		Thread.sleep(3000);
