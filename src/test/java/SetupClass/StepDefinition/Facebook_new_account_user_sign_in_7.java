@@ -77,11 +77,13 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		
 		Thread.sleep(3000);
 		  driver.switchTo().window(currentWindow);
+		System.out.println("current window " + driver.getCurrentUrl());
 	}
 
 	@Then("^user is redirected my dashboard page vii$")
 	public void user_is_redirected_my_dashboard_page_vii() throws Throwable {
 		log.info("Hey, I am on Pricing");
+		System.out.println("pricing url is " + driver.getCurrentUrl());
 	}
 
 	/*@Then("^user download a free product vii$")
@@ -119,7 +121,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		//WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
 		//Thread.sleep(3000);
-		
+		System.out.println("signout page url " + driver.getCurrentUrl());
 		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Logout']")));
 		Signout.click();
 		log.info("Hey, I am on Home page Again after Sign out");
