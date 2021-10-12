@@ -22,16 +22,16 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		driver.get(AppURL);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 	    
 	}
 
 	@Then("^user navigates to fb login page vii$")
 	public void user_navigates_to_fb_login_page_vii() throws Throwable {
 		WebElement fb_login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#facebook-signin-btn > i")));
-		 Thread.sleep(3000);
+		// Thread.sleep(3000);
 		 fb_login_btn.click();
-		 Thread.sleep(3000);
+		//Thread.sleep(3000);
 	}
 
 	@Then("^user login to website vii$")
@@ -63,19 +63,19 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	//	Thread.sleep(3000);
 		fb_email.clear();
                fb_email.sendKeys("amw.vrushali@gmail.com");
-          Thread.sleep(3000);
+         // Thread.sleep(3000);
                WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
                fb_pass.sendKeys("vrushali@786");
 	       
-	       Thread.sleep(3000);
+	     //  Thread.sleep(3000);
 		WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 	    //  WebElement fb_login_btn=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='login']")));
 		//WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 	       fb_login_btn.click();
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		  driver.switchTo().window(currentWindow);
 		System.out.println("current window " + driver.getCurrentUrl());
 	}
