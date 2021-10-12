@@ -58,7 +58,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		// driver.findElement(By.xpath("//input[@id='email']")).clear();
 	      // String fb_url = driver.getCurrentUrl();
 	       //System.out.println("fb_url =" +fb_url);
-	   
+	        driver.manage().deleteAllCookies();
 	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 	//	Thread.sleep(3000);
 		fb_email.clear();
@@ -75,8 +75,8 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		//Thread.sleep(3000);
 	       fb_login_btn.click();
 		Thread.sleep(9000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		Thread.sleep(3000);
+		//driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		Thread.sleep(5000);
 		 driver.switchTo().window(currentWindow);
 		System.out.println("current window " + driver.getCurrentUrl());
 	}
