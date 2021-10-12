@@ -76,13 +76,14 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	       fb_login_btn.click();
 		Thread.sleep(9000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		//Thread.sleep(3000);
-		//  driver.switchTo().window(currentWindow);
+		Thread.sleep(3000);
+		 driver.switchTo().window(currentWindow);
 		System.out.println("current window " + driver.getCurrentUrl());
 	}
 
 	@Then("^user is redirected my dashboard page vii$")
 	public void user_is_redirected_my_dashboard_page_vii() throws Throwable {
+		Thread.sleep(3000);
 		log.info("Hey, I am on Pricing");
 		System.out.println("pricing url is " + driver.getCurrentUrl());
 	}
