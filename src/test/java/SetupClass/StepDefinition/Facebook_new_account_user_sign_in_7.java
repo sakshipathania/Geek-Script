@@ -79,6 +79,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		//Thread.sleep(5000);
 		 driver.switchTo().window(currentWindow);
 		Thread.sleep(9000);
+		Thread.sleep(9000);
 		System.out.println("current window " + driver.getCurrentUrl());
 	}
 
