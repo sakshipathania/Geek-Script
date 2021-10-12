@@ -116,9 +116,10 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 				 Thread.sleep(3000);
 				 log.info("Hey, I am on Home page Again after Sign out");*/
 				// Thread.sleep(1000);
-		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@href,'/logout')]")));
+		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		Signout.click();
+		log.info("Hey, I am on Home page Again after Sign out");
 	}
 }
