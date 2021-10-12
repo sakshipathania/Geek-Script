@@ -74,6 +74,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		//WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
 		//Thread.sleep(3000);
 	       fb_login_btn.click();
+		Thread.sleep(9000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		//Thread.sleep(3000);
 		  driver.switchTo().window(currentWindow);
