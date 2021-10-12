@@ -56,8 +56,8 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		  }
 	       Thread.sleep(5000);
 		// driver.findElement(By.xpath("//input[@id='email']")).clear();
-	       String fb_url = driver.getCurrentUrl();
-	       System.out.println("fb_url =" +fb_url);
+	      // String fb_url = driver.getCurrentUrl();
+	       //System.out.println("fb_url =" +fb_url);
 	   
 	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 	//	Thread.sleep(3000);
@@ -68,7 +68,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		Thread.sleep(3000);
                fb_pass.sendKeys("vrushali@786");
 	       
-	       Thread.sleep(5000);
+	       Thread.sleep(3000);
 		WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 	    //  WebElement fb_login_btn=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='login']")));
 		//WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
@@ -116,9 +116,11 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 				 Thread.sleep(3000);
 				 log.info("Hey, I am on Home page Again after Sign out");*/
 				// Thread.sleep(1000);
-		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
+		//WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
 		//Thread.sleep(3000);
+		
+		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Logout']")));
 		Signout.click();
 		log.info("Hey, I am on Home page Again after Sign out");
 	}
