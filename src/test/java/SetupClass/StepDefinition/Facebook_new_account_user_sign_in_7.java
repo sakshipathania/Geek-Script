@@ -58,15 +58,15 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		// driver.findElement(By.xpath("//input[@id='email']")).clear();
 	      // String fb_url = driver.getCurrentUrl();
 	       //System.out.println("fb_url =" +fb_url);
-	        driver.manage().deleteAllCookies();
+	      //  driver.manage().deleteAllCookies();
 	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 	//	Thread.sleep(3000);
 		fb_email.clear();
-               fb_email.sendKeys("nishadhiman0027@gmail.com");
+               fb_email.sendKeys("slidetech.qa@gmail.com");
          // Thread.sleep(3000);
                WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
 		//Thread.sleep(3000);
-               fb_pass.sendKeys("Qwerty@1");
+               fb_pass.sendKeys("himanshi@123");
 	       
 	     //  Thread.sleep(3000);
 		WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
