@@ -77,7 +77,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		Thread.sleep(9000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		//Thread.sleep(3000);
-		  driver.switchTo().window(currentWindow);
+		//  driver.switchTo().window(currentWindow);
 		System.out.println("current window " + driver.getCurrentUrl());
 	}
 
