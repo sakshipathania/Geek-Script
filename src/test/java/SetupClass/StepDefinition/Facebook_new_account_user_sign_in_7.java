@@ -129,5 +129,6 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Logout']")));
 		Signout.click();
 		log.info("Hey, I am on Home page Again after Sign out");
+		
 	}
 }
