@@ -4,7 +4,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import java.lang.*;
-
+import java.util.Iterator;
+import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -181,14 +182,31 @@ public class Paypal_Checkout extends SetupClass {
 	public void paypal_popup_appears_and_user_navigates_back_to_my_account_pp() throws Throwable {
 	         
 		// page title
-		  String pp_page_title=driver.getTitle();
-			Thread.sleep(3000);
-		    System.out.println("Title of the Page is --> "+pp_page_title);
+		 String pp_page_title=driver.getTitle();
+		 System.out.println("Title of the Page is --> "+pp_page_title);
+		
+		Assert.assertTrue("title does not matched",
+						driver.getTitle().contains("Slideteam PTE LTD"));
 		    
 
-		Thread.sleep(2000);
-				  driver.get("https://www.slidegeeks.com/component/pago/checkout");
-				 // driver.switchTo().window(currentWindow);
+		Thread.sleep(1000);
+		
+	        //verify text message on paypal page 
+		String verifyText1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
+				"//span[@class='Text Text-color--gray500 Text-fontSize--16 Text-fontWeight--500']")))
+				.getText();
+		System.out.println("verifyText1 = " + verifyText1);
+		
+		Assert.assertTrue("Your are not on paypal page",
+				verifyText1.contentEquals("Subscribe to Annual 20-User License (plus 20 Custom Designed slides worth dollar 300)"));
+		
+		//verify price
+		String verifyPrice = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mr2 flex-item width-fixed']")))
+				.getText();
+		System.out.println("verifyText1 = " + verifyPrice);
+
+		Assert.assertTrue("Your are not on paypal page", verifyPrice.contentEquals("$1,599.99"));
 			 
 	}
 
@@ -196,7 +214,7 @@ public class Paypal_Checkout extends SetupClass {
 	@Then("^user Signout account PP$")
 	public void user_Signout_account_PP() throws Throwable {
 		Thread.sleep(3000);
-	    driver.get("https://www.slidegeeks.com/component/pago/checkout");
+	        driver.get("https://www.slidegeeks.com/component/pago/checkout");
 		Thread.sleep(2000);
 		
 		
