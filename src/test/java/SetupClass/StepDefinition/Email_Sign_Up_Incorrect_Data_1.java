@@ -2,7 +2,7 @@ package SetupClass.StepDefinition;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +18,8 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on Website Home Page i$")
 	public void user_is_already_on_Website_Home_Page_i() throws Throwable {
-		
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -27,10 +28,15 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 
 	@Then("^user navigates to sign up page i$")
 	public void user_navigates_to_sign_up_page_i() throws Throwable {
-		 WebElement login_signup_btn = driver.findElement(By.xpath("/html/body/div[1]/header/div/div/nav/div/div[2]/div[2]/div[2]/div/div[2]/ul/li[2]/a"));
-		 Thread.sleep(3000);
-		 login_signup_btn.click();
-		 Thread.sleep(3000);
+		try {
+			WebElement login_signup_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.linkText("SIGNUP FOR FREE")));
+			Thread.sleep(3000);
+			login_signup_btn.click();
+			Thread.sleep(3000);
+		} catch (NoSuchElementException e) {
+
+		}
 	   
 	}
 
@@ -196,9 +202,14 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 			 
 			 Thread.sleep(1000);
 		}*/
-		 WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(3000);
-		Signout.click();
+		
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 
 	
