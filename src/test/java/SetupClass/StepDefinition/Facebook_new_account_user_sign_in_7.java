@@ -18,11 +18,11 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on Home Page of Geeks Website vii$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vii() throws Throwable {
-		//Thread.sleep(6000);
+		Thread.sleep(1000);
 		driver.get(AppURL);
 		
 		driver.manage().deleteAllCookies();
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		//Thread.sleep(1000);
