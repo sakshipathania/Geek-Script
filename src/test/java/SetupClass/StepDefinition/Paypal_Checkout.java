@@ -29,7 +29,6 @@ public class Paypal_Checkout extends SetupClass {
 	public void user_is_already_on_Website_Home_Page() throws Throwable {
 		driver.get(AppURL);
 		 Thread.sleep(1000);
-		//driver.get("https://www.slidegeeks.com/");
 		driver.manage().deleteAllCookies();
 		 Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
