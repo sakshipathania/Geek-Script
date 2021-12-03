@@ -27,9 +27,10 @@ public class CO_Checkout extends SetupClass {
 	
 	@Given("^user is already on Website Home Page CO$")
 	public void user_is_already_on_Website_Home_Page_CO() throws Throwable {
+		Thread.sleep(1000);
 		driver.get(AppURL);
 		driver.manage().deleteAllCookies();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
