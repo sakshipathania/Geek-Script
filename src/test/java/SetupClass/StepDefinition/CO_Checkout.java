@@ -34,7 +34,17 @@ public class CO_Checkout extends SetupClass {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
-		
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+			System.out.println("Logout click successfully");
+
+		} catch (NoSuchElementException e) {
+
+		}
+		String pp_page_title = driver.getTitle();
+			System.out.println("Title of the Page is --> " + pp_page_title);
 		
 		try {
 			WebElement login_signup_btn = wait
