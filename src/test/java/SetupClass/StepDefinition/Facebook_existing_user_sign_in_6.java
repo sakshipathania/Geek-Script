@@ -19,6 +19,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	
 	@Given("^user is already on Home Page of Geeks Website vi$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vi() throws Throwable {
+		Thread.sleep(1000);
+		driver.get(AppURL);
 		driver.manage().deleteAllCookies();
 		Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
