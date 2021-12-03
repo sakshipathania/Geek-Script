@@ -39,7 +39,10 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	public void user_login_to_website_vi() throws Throwable {
 		
       driver.manage().window().maximize();
-		
+		// String handle = " ";
+		String currentWindow = driver.getWindowHandle();
+		String popupWindowHandle = null;
+
 		  
 		for (String handle : driver.getWindowHandles()) {
 			if (!handle.equals(currentWindow)) {
