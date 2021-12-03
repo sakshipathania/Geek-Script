@@ -95,7 +95,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		 Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();",download_btn);
 		Thread.sleep(2000);
-		 download_btn.click();
+		 //download_btn.click();
+		js.executeScript("arguments[0].click();",download_btn);
 		 Thread.sleep(3000);
 		 
 	    	}
@@ -109,6 +110,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				 login_btn.click();
 				 Thread.sleep(3000);
 				 log.info("Hey, I am on Home page Again after Sign out");*/
+		String pp_page_title = driver.getTitle();
+			System.out.println("Title of the Page is --> " + pp_page_title);
 				 Thread.sleep(1000);
 	
 		try {
