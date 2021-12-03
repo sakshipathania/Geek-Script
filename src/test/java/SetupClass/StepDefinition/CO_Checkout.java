@@ -27,8 +27,8 @@ public class CO_Checkout extends SetupClass {
 	
 	@Given("^user is already on Website Home Page CO$")
 	public void user_is_already_on_Website_Home_Page_CO() throws Throwable {
-		driver.get(AppURL);
-		//driver.get("https://www.slidegeeks.com/");
+		//driver.get(AppURL);
+		driver.get("https://www.slidegeeks.com/");
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -60,13 +60,13 @@ public class CO_Checkout extends SetupClass {
 				}
 	    
 		Thread.sleep(3000);
-		driver.get("https://www.slidegeeks.com/register");
-		Thread.sleep(3000);
-		/*WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
+		//driver.get("https://www.slidegeeks.com/register");
+		//Thread.sleep(3000);
+		WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
 		 Thread.sleep(3000);
 		 login_signup_btn.click();
 		 Thread.sleep(3000);
-		 */
+		 
 		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#jform_name1")));
 		 Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
@@ -126,8 +126,8 @@ public class CO_Checkout extends SetupClass {
     @Then("^user is redirected to pricing page and choose a plan to pay (\\d+)CO$")
 	public void user_is_redirected_to_pricing_page_and_choose_a_plan_to_pay_CO(int arg1) throws Throwable {
 		// choose a plan
-		driver.get("https://www.slidegeeks.com/subscriptions");
-		Thread.sleep(3000);
+		//driver.get("https://www.slidegeeks.com/subscriptions");
+		//Thread.sleep(3000);
 		//js.executeScript("window.scrollBy(0,1000)");
 		 WebElement Subscribe_btn  =  driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/div[1]/div/div[3]/div[3]/span/form/span/button"));
 		js.executeScript("arguments[0].scrollIntoView();",Subscribe_btn);
