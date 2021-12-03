@@ -3,7 +3,7 @@ package SetupClass;
 import java.io.FileReader;
 import java.util.Properties;
 import java.util.logging.Logger;
-
+import java.util.concurrent.TimeUnit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -43,6 +43,7 @@ public class SetupClass {
 			options.addArguments("--disable-notifications");
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			Thread.sleep(1000);
 		}
 		// if (browser.equalsIgnoreCase("firefox"))
@@ -51,6 +52,7 @@ public class SetupClass {
 		else if ((local_FFbrowser.equals("yes"))) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 
 			Thread.sleep(1000);
 		} else {
