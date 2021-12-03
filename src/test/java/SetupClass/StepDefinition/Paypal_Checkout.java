@@ -108,25 +108,28 @@ public class Paypal_Checkout extends SetupClass {
   
     @Then("^user is redirected to pricing page and choose the plan to pay$")
 	public void user_is_redirected_to_pricing_page_and_choose_the_plan_to_pay() throws Throwable {
-		// choose a plan
-		//driver.get("https://www.slidegeeks.com/subscriptions");
-		Thread.sleep(3000);
-		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div/div/button[2]")));
-				Thread.sleep(2000);
-		Business_Team.click();
-		Thread.sleep(4000);
-		//js.executeScript("window.scrollBy(0,1000)");
-		 WebElement Subscribe_btn  =  driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/div[2]/div/div[3]/div[3]/span/form/span/button"));
-		js.executeScript("arguments[0].scrollIntoView();",Subscribe_btn);
+		try {
+			WebElement Business_Team = wait.until(ExpectedConditions
+					.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div/div/button[2]")));
 			Thread.sleep(2000);
-		    Subscribe_btn.click();
-			Thread.sleep(6000);
+			js.executeScript("arguments[0].scrollIntoView();", Business_Team);
+			js.executeScript("arguments[0].click();", Business_Team);
+			Thread.sleep(2000);
+
+			WebElement Subscribe_btn = driver.findElement(By.xpath(
+					"/html/body/div[1]/div[2]/div/div[2]/div[2]/div/div[2]/div/div[3]/div[3]/span/form/span/button"));
+			js.executeScript("arguments[0].scrollIntoView();", Subscribe_btn);
+			Thread.sleep(3000);
+			js.executeScript("arguments[0].click();", Subscribe_btn);
+		} catch (NoSuchElementException e1) {
+			
+		}
 
 	}
 
 	@Then("^user is redirected checkout page$")
 	public void user_is_redirected_checkout_page() throws Throwable {
-		Thread.sleep(6000);
+		Thread.sleep(2000);
     //WebElement Continue =  driver.findElement(By.xpath("//*[@id='pg-checkout-shipping-info']/div[1]/div/div/div/div[2]/button"));
 	//js.executeScript("arguments[0].scrollIntoView();",Continue);
 		//Thread.sleep(1000);
@@ -168,32 +171,43 @@ public class Paypal_Checkout extends SetupClass {
 	@Then("^paypal popup appears and user navigates back to my account pp$")
 	public void paypal_popup_appears_and_user_navigates_back_to_my_account_pp() throws Throwable {
 	         
-		// page title
-		 String pp_page_title=driver.getTitle();
-		 System.out.println("Title of the Page is --> "+pp_page_title);
-		
-		Assert.assertTrue("title does not matched",
-						driver.getTitle().contains("Slideteam PTE LTD"));
-		    
-
 		Thread.sleep(1000);
-		
-	        //verify text message on paypal page 
-		String verifyText1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-				"//span[@class='Text Text-color--gray500 Text-fontSize--16 Text-fontWeight--500']")))
-				.getText();
-		System.out.println("verifyText1 = " + verifyText1);
-		
-		Assert.assertTrue("Your are not on paypal page",
-				verifyText1.contentEquals("Subscribe to Annual 20-User License (plus 20 Custom Designed slides worth dollar 300)"));
-		
-		//verify price
-		String verifyPrice = wait
-				.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='mr2 flex-item width-fixed']")))
-				.getText();
-		System.out.println("verifyText1 = " + verifyPrice);
+		try {
 
-		Assert.assertTrue("Your are not on paypal page", verifyPrice.contentEquals("$1,599.99"));
+			WebElement place_order_btn = driver.findElement(By.cssSelector(
+					"body > div.afterBody.checkout-wrapper.main-wrapper.no-left-menu > div.main_wrapper > div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
+			Thread.sleep(2000);
+			js.executeScript("arguments[0].scrollIntoView();", place_order_btn);
+			// js.executeScript("arguments[0].click();", place_order_btn);
+			Thread.sleep(2000);
+			place_order_btn.click();
+			Thread.sleep(5000);
+		} catch (NoSuchElementException popup) {
+		}
+
+		String pp_page_URL = driver.getCurrentUrl();
+		System.out.println("URL of the Page is --> " + pp_page_URL);
+
+		if (pp_page_URL.equals("https://www.paypal.com/cgi-bin/webscr")) {
+
+			System.out.println("security captcha is visible");
+
+		} else {
+
+			String pp_page_title = driver.getTitle();
+			System.out.println("Title of the Page is --> " + pp_page_title);
+
+			Assert.assertTrue("title does not matched", driver.getTitle().contains("Log in to your PayPal account"));
+
+			Thread.sleep(1000);
+
+			WebElement email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
+			email.sendKeys("nishadhiman0027@gmail.com");
+			WebElement next = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='btnNext']")));
+			next.click();
+
+			Thread.sleep(1000);
+		}
 			 
 	}
 
@@ -205,9 +219,15 @@ public class Paypal_Checkout extends SetupClass {
 		Thread.sleep(2000);
 		
 		
-		 WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(3000);
-		Signout.click();
+		 	try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+			System.out.println("Logout click successfully");
+
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 
 
