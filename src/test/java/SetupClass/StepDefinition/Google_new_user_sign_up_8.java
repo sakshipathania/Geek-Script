@@ -116,8 +116,10 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 				By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn downloadFreePrd']"));
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", download_btn);
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", download_btn);
 		Thread.sleep(3000);
-		download_btn.click();
+		//download_btn.click();
 		Thread.sleep(3000);
 		 
 	    	}
