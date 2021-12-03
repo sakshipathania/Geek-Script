@@ -18,8 +18,11 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on Home Page of Geeks Website vii$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vii() throws Throwable {
-		Thread.sleep(6000);
+		//Thread.sleep(6000);
 		driver.get(AppURL);
+		
+		driver.manage().deleteAllCookies();
+		Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		//Thread.sleep(1000);
@@ -29,58 +32,52 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	@Then("^user navigates to fb login page vii$")
 	public void user_navigates_to_fb_login_page_vii() throws Throwable {
 		WebElement fb_login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#facebook-signin-btn > i")));
-		// Thread.sleep(3000);
 		 fb_login_btn.click();
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 	}
 
 	@Then("^user login to website vii$")
 	public void user_login_to_website_vii() throws Throwable {
 		
-      driver.manage().window().maximize();
+                 driver.manage().window().maximize();
 		
-		  // Store the CurrentWindow for future reference
-		 // String handle = " ";
-		  String currentWindow = driver.getWindowHandle();
-		  String popupWindowHandle = null;
-		   
-		  // Switch To Popup Window
-		  
-		  for(String handle : driver.getWindowHandles()){
-		   if(!handle.equals(currentWindow)){
-		    
-		    popupWindowHandle = handle;
-		     driver.switchTo().window(popupWindowHandle);
-			   driver.manage().window().maximize();
-		   }
-		  }
-	       Thread.sleep(5000);
-		// driver.findElement(By.xpath("//input[@id='email']")).clear();
-	      // String fb_url = driver.getCurrentUrl();
-	       //System.out.println("fb_url =" +fb_url);
-	      //  driver.manage().deleteAllCookies();
-	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
-	//	Thread.sleep(3000);
-		fb_email.clear();
-               fb_email.sendKeys("amw.vrushali@gmail.com");
-         // Thread.sleep(3000);
-               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
-		//Thread.sleep(3000);
-               fb_pass.sendKeys("vrushali@786");
-	       
-	     //  Thread.sleep(3000);
-		WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
-	    //  WebElement fb_login_btn=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='login']")));
-		//WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
-		//Thread.sleep(3000);
-	       fb_login_btn.click();
-		Thread.sleep(9000);
-		//driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		//Thread.sleep(5000);
-		 driver.switchTo().window(currentWindow);
-		Thread.sleep(9000);
-		Thread.sleep(9000);
-		System.out.println("current window " + driver.getCurrentUrl());
+		// Store the CurrentWindow for future reference
+		// String handle = " ";
+		String currentWindow = driver.getWindowHandle();
+		String popupWindowHandle = null;
+
+		// Switch To Popup Window
+
+		for (String handle : driver.getWindowHandles()) {
+			if (!handle.equals(currentWindow)) {
+
+				popupWindowHandle = handle;
+				driver.switchTo().window(popupWindowHandle);
+				driver.manage().window().maximize();
+
+				Thread.sleep(5000);
+
+				WebElement fb_email = wait
+						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
+
+				fb_email.clear();
+				fb_email.sendKeys("amw.vrushali@gmail.com");
+
+				WebElement fb_pass = wait
+						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
+
+				fb_pass.sendKeys("vrushali@786");
+
+				WebElement fb_login_btn1 = wait.until(
+						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
+
+				fb_login_btn1.click();
+				Thread.sleep(3000);
+
+			}
+		}
+		driver.switchTo().window(currentWindow);
+		Thread.sleep(2000);
 	}
 
 	@Then("^user is redirected my dashboard page vii$")
@@ -124,11 +121,15 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 				// Thread.sleep(1000);
 		//WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		//Thread.sleep(3000);
-		System.out.println("signout page url " + driver.getCurrentUrl());
-		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Logout']")));
-		Signout.click();
-		log.info("Hey, I am on Home page Again after Sign out");
+		Thread.sleep(2000);
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+			System.out.println("Logout click successfully");
+		} catch (NoSuchElementException e) {
+
+		}
 		
 	}
 }
