@@ -28,40 +28,27 @@ public class Paypal_Checkout extends SetupClass {
 	@Given("^user is already on Website Home Page$")
 	public void user_is_already_on_Website_Home_Page() throws Throwable {
 		driver.get(AppURL);
+		 Thread.sleep(1000);
 		//driver.get("https://www.slidegeeks.com/");
+		driver.manage().deleteAllCookies();
+		 Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
 		
 		try {
-			WebElement iframe = driver.findElement(By.id("livechat-full-view"));
-			if(iframe.isDisplayed()) {
-				driver.switchTo().frame(iframe);   
-				 Actions act = new Actions(driver);
-				 act.moveToElement(driver.findElement(By.cssSelector("#title .icon-minimize"))).build().perform();
-				 Thread.sleep(2000);
-					WebElement chat1=driver.findElement(By.cssSelector("#title .icon-minimize"));
-					 Thread.sleep(1000);
-						chat1.click();
-						 Thread.sleep(1000);
-						 driver.switchTo().defaultContent();
-						 Thread.sleep(1000);
-						 driver.switchTo().parentFrame();
-					 Thread.sleep(1000);
-			}
-			else {
-				
+			WebElement login_signup_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.linkText("SIGNUP FOR FREE")));
+			Thread.sleep(3000);
+			login_signup_btn.click();
+			Thread.sleep(3000);
+		} catch (NoSuchElementException e) {
 
-			System.out.println("chat window does not open");
-			}
 		}
-				catch(NoSuchElementException NCP) {
-					
-				}
 	    
-		Thread.sleep(3000);
-		driver.get("https://www.slidegeeks.com/register");
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		//driver.get("https://www.slidegeeks.com/register");
+		//Thread.sleep(3000);
 		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.name("jform[name1]")));
 		 Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
@@ -122,7 +109,7 @@ public class Paypal_Checkout extends SetupClass {
     @Then("^user is redirected to pricing page and choose the plan to pay$")
 	public void user_is_redirected_to_pricing_page_and_choose_the_plan_to_pay() throws Throwable {
 		// choose a plan
-		driver.get("https://www.slidegeeks.com/subscriptions");
+		//driver.get("https://www.slidegeeks.com/subscriptions");
 		Thread.sleep(3000);
 		WebElement Business_Team = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div/div/button[2]")));
 				Thread.sleep(2000);
