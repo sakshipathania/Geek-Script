@@ -1,7 +1,7 @@
 package SetupClass.StepDefinition;
 
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +18,8 @@ public class Email_Sign_In_Paid_User_5 extends SetupClass {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on Home Page of Geeks Website v$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_v() throws Throwable {
-		
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -27,25 +28,30 @@ public class Email_Sign_In_Paid_User_5 extends SetupClass {
 
 	@Then("^user navigates to login page v$")
 	public void user_navigates_to_login_page_v() throws Throwable {
-		WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/header/div/div/nav/div/div[2]/div[2]/div[2]/div/div[2]/ul/li[1]/a")));
-		 Thread.sleep(3000);
-		 login_signup_btn.click();
-		 Thread.sleep(3000);
+		try {
+			WebElement login_signin_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Login']")));
+			Thread.sleep(3000);
+			login_signin_btn.click();
+			Thread.sleep(3000);
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 
 	@Then("^user login to website v$")
 	public void user_login_to_website_v() throws Throwable {
-		 driver.get("https://www.slidegeeks.com/account");
-	       Thread.sleep(5000);
+		// driver.get("https://www.slidegeeks.com/account");
+	      // Thread.sleep(5000);
 	       
-	        WebElement old_paid_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div[2]/div/form/div[1]/input")));
+	        WebElement old_paid_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='E-mail Address']")));
                old_paid_email.sendKeys("sakshi.pathania@slidetech.in");
           Thread.sleep(3000);
-               WebElement old_paid_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[3]/div/div[2]/div/div/div[2]/div/form/div[2]/input")));
+               WebElement old_paid_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Password']")));
                old_paid_pass.sendKeys("Qwerty@1");
 	       
 	       Thread.sleep(3000);
-	       WebElement old_paid_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#pg-account-action > div > div:nth-child(2) > div > form > div.btn-wrapper.login_btn > input")));
+	       WebElement old_paid_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='Submit']")));
 	       old_paid_login_btn.click();
 	}
 
@@ -77,8 +83,12 @@ public class Email_Sign_In_Paid_User_5 extends SetupClass {
 				 Thread.sleep(3000);
 				 log.info("Hey, I am on Home page Again after Sign out");
 				 Thread.sleep(1000);*/
-		 WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(3000);
-		Signout.click();
+		 try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 }
