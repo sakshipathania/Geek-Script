@@ -1,7 +1,7 @@
 package SetupClass.StepDefinition;
 
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,7 +19,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	
 	@Given("^user is already on Home Page of Geeks Website vi$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vi() throws Throwable {
-		
+		driver.manage().deleteAllCookies();
+		Thread.sleep(4000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -39,43 +40,39 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		
       driver.manage().window().maximize();
 		
-		  // Store the CurrentWindow for future reference
-		 // String handle = " ";
-		  String currentWindow = driver.getWindowHandle();
-		  String popupWindowHandle = null;
-		   
-		  // Switch To Popup Window
 		  
-		  for(String handle : driver.getWindowHandles()){
-		   if(!handle.equals(currentWindow)){
-		    
-		    popupWindowHandle = handle;
-		     driver.switchTo().window(popupWindowHandle);
-			   driver.manage().window().maximize();
-		   }
-		  }
-	       Thread.sleep(5000);
-	       
-	        WebElement fb_email = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
-		//Thread.sleep(3000);
-		fb_email.clear();
-               fb_email.sendKeys("slidetech.qa@gmail.com");
-          Thread.sleep(3000);
-               WebElement fb_pass = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
-		//Thread.sleep(3000);
-		fb_pass.clear();
-               fb_pass.sendKeys("himanshi@123");
-	       
-	       Thread.sleep(6000);
-		 WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
-	    //  WebElement fb_login_btn=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]")));
-		//WebElement fb_login_btn = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[3]/label[2]/input[1]"));
-		
-		//Thread.sleep(3000);
-	       fb_login_btn.click();
-		
-		Thread.sleep(3000);
-		  driver.switchTo().window(currentWindow);
+		for (String handle : driver.getWindowHandles()) {
+			if (!handle.equals(currentWindow)) {
+
+				popupWindowHandle = handle;
+				driver.switchTo().window(popupWindowHandle);
+				driver.manage().window().maximize();
+
+				Thread.sleep(5000);
+
+				WebElement fb_email = wait
+						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
+				// Thread.sleep(3000);
+				fb_email.clear();
+				fb_email.sendKeys("slidetech.qa@gmail.com");
+				Thread.sleep(3000);
+				WebElement fb_pass = wait
+						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
+				// Thread.sleep(3000);
+				fb_pass.clear();
+				fb_pass.sendKeys("himanshi@123");
+
+				Thread.sleep(6000);
+				WebElement fb_login_btn2 = wait.until(
+						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
+				fb_login_btn2.click();
+				Thread.sleep(3000);
+				// to verify the continue button 
+				// button[normalize-space()='Yes, Continue']
+
+			}
+		}
+		driver.switchTo().window(currentWindow);
 	}
 
 	@Then("^user is redirected my dashboard page vi$")
@@ -85,16 +82,16 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
 	@Then("^user download a paid product vi$")
 	public void user_download_a_paid_product_vi() throws Throwable {
-		
+		Thread.sleep(3000);
 		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
-		Thread.sleep(9000);
+		Thread.sleep(3000);
 		 
 		 WebElement download_btn = driver.findElement(By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn vwo_subscribe_click']"));
-		 Thread.sleep(5000);
+		 Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();",download_btn);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		 download_btn.click();
-		 Thread.sleep(5000);
+		 Thread.sleep(3000);
 		 
 	    	}
 
@@ -109,8 +106,12 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				 log.info("Hey, I am on Home page Again after Sign out");*/
 				 Thread.sleep(1000);
 	
-		 WebElement Signout = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/ul[1]/li[2]/a[1]"));
-		Thread.sleep(3000);
-		Signout.click();
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 }
