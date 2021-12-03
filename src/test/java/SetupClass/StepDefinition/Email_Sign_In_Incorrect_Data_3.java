@@ -88,8 +88,8 @@ public class Email_Sign_In_Incorrect_Data_3 extends SetupClass {
                old_paid_pass1.sendKeys("Qwerty@1");
 	       
 	       Thread.sleep(3000);
-	       WebElement old_paid_login_btn1=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("By.xpath("//input[@name='Submit']")));
-	       old_paid_login_btn1.click();
+	      WebElement old_paid_login_btn1=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='Submit']")));
+	      old_paid_login_btn1.click();
 		
 		driver.get("https://www.slidegeeks.com/business/product/emerging-marketplace-strategies-growth-ppt-powerpoint-presentation-complete-deck");
 		Thread.sleep(5000);
