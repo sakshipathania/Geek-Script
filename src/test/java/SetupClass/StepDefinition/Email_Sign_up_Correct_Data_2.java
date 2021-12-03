@@ -2,7 +2,7 @@ package SetupClass.StepDefinition;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +20,10 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
-		//driver.get(AppURL);
+		driver.get(AppURL);
+		Thread.sleep(1000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -30,12 +33,17 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	@Then("^user navigates to sign up page ii$")
 	public void user_navigates_to_sign_up_page_ii() throws Throwable {
 		
-		/* WebElement login_signup_btn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)")));
-		 Thread.sleep(3000);
-		 login_signup_btn.click();
-		 Thread.sleep(3000);*/
-		driver.get("https://www.slidegeeks.com/register");
-		Thread.sleep(3000);
+		try {
+			WebElement login_signup_btn = wait
+					.until(ExpectedConditions.elementToBeClickable(By.linkText("SIGNUP FOR FREE")));
+			Thread.sleep(3000);
+			login_signup_btn.click();
+			Thread.sleep(3000);
+		} catch (NoSuchElementException e) {
+
+		}
+		//driver.get("https://www.slidegeeks.com/register");
+		//Thread.sleep(3000);
 	   
 	}
 
@@ -139,9 +147,13 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 			 
 			 Thread.sleep(1000);
 		}*/
-		 WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(3000);
-		Signout.click();
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+		} catch (NoSuchElementException e) {
+
+		}
 	    
 	}
 
