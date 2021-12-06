@@ -28,11 +28,13 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		Thread.sleep(1000);
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
-			Thread.sleep(3000);
-			Signout.click();
-			System.out.println("Logout click successfully");
-
-		} catch (NoSuchElementException e) {
+			if (Signout.isEnabled()) {
+				Signout.click();
+				Thread.sleep(2000);
+				driver.navigate().refresh();
+			 Thread.sleep(2000);
+			}
+		} catch (NoSuchElementException Ext) {
 
 		}
 	    
