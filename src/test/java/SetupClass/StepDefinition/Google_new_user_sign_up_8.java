@@ -111,7 +111,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", Download);
 		Download.click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		WebElement download_btn = driver.findElement(
 				By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn downloadFreePrd']"));
 		Thread.sleep(3000);
