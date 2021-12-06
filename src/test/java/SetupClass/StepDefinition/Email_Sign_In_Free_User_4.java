@@ -22,6 +22,18 @@ public class Email_Sign_In_Free_User_4 extends SetupClass {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
+		
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			if (Signout.isEnabled()) {
+				Signout.click();
+				Thread.sleep(2000);
+				driver.navigate().refresh();
+			 Thread.sleep(2000);
+			}
+		} catch (NoSuchElementException Ext) {
+
+		}
 	}
 
 	@Then("^user navigates to login page iv$")
