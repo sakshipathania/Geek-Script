@@ -104,16 +104,16 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 		driver.get("https://www.slidegeeks.com/free-downloads");
 		Thread.sleep(6000);
 
-		WebElement Download = driver.findElement(
-				By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span"));
+		WebElement Download = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span")));
 
 		// WebElement Download = (WebElement)js.executeScript("('a.btn-download')", "");
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", Download);
 		Download.click();
 		Thread.sleep(5000);
-		WebElement download_btn = driver.findElement(
-				By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn downloadFreePrd']"));
+		WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn downloadFreePrd']")));
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", download_btn);
 		Thread.sleep(2000);
