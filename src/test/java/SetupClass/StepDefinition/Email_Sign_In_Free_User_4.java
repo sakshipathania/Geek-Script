@@ -23,7 +23,7 @@ public class Email_Sign_In_Free_User_4 extends SetupClass {
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
 		
-		try {
+		/*try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			if (Signout.isEnabled()) {
 				Signout.click();
@@ -33,7 +33,7 @@ public class Email_Sign_In_Free_User_4 extends SetupClass {
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}
+		}*/
 	}
 
 	@Then("^user navigates to login page iv$")
