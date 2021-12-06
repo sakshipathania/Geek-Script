@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.*;
 import org.junit.Assert;
 
-
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -195,6 +195,13 @@ public class CO_Checkout extends SetupClass {
 		Thread.sleep(2000);
 		Stripe_back.click();
 		Thread.sleep(2000);
+		try {
+			if (wait.until(ExpectedConditions.alertIsPresent()) != null)
+				driver.switchTo().alert().accept();
+
+		} catch (TimeoutException eTO) {
+
+		}
 		
 	}
 
