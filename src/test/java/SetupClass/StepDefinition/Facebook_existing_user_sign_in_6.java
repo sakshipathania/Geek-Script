@@ -26,7 +26,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
-		try {
+		/*try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			if (Signout.isEnabled()) {
 				Signout.click();
@@ -36,7 +36,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}
+		}*/
 	    
 	}
 
