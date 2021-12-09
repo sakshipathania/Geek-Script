@@ -113,7 +113,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 		Download.click();
 		Thread.sleep(3000);
 		WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn downloadFreePrd']")));
+				By.xpath("//a[@id='download_product']")));
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", download_btn);
 		Thread.sleep(2000);
