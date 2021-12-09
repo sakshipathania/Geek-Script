@@ -248,6 +248,7 @@ public class CO_Checkout extends SetupClass {
 
 		Assert.assertTrue("Your account is not deleted",
 				verifyDeleteAccountMessage.contentEquals("Your Account has been deleted successfully."));
+		System.out.println("Account delete successfully");
 	
 }
 }
