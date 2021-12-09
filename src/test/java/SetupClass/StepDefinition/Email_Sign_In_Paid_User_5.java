@@ -86,6 +86,7 @@ public class Email_Sign_In_Paid_User_5 extends SetupClass {
 		 try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
+			 System.out.println("Signout from the application");
 			Signout.click();
 		} catch (NoSuchElementException e) {
 
