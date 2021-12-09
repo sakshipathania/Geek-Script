@@ -134,7 +134,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 				// Thread.sleep(1000);
 		//WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(2000);
+		/*Thread.sleep(2000);
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
@@ -142,7 +142,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 			System.out.println("Logout click successfully");
 		} catch (NoSuchElementException e) {
 
-		}
+		}*/
 		
 	}
 }
