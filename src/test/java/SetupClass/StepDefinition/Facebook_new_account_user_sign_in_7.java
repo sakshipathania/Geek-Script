@@ -37,6 +37,24 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		} catch (NoSuchElementException Ext) {
 
 		}*/
+		try {
+			boolean logout =wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).isDisplayed();
+			
+			if (logout == true) {
+				
+				wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).click();
+				
+				Thread.sleep(2000);
+				driver.navigate().refresh();
+			 Thread.sleep(2000);
+			}
+			
+			else 
+			{System.out.println("Element not dispalyed");}
+		} catch (NoSuchElementException Ext) {
+
+		}
+			
 	    
 	}
 
