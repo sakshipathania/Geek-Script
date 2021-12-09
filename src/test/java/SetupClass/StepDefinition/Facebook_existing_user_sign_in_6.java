@@ -82,7 +82,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				WebElement fb_login_btn2 = wait.until(
 						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				fb_login_btn2.click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				// to verify the continue button 
 				// button[normalize-space()='Yes, Continue']
 
@@ -98,9 +98,9 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
 	@Then("^user download a paid product vi$")
 	public void user_download_a_paid_product_vi() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
-		Thread.sleep(3000);
+		Thread.sleep(7000);
 		 
 		 WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn-download pg-button pg-addtocart pg-green-background-btn vwo_subscribe_click']")));
 		 Thread.sleep(2000);
