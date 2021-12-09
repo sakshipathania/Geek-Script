@@ -112,7 +112,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 		js.executeScript("arguments[0].scrollIntoView();", Download);
 		Download.click();
 		Thread.sleep(3000);
-		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
+		WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", download_btn);
 		Thread.sleep(2000);
