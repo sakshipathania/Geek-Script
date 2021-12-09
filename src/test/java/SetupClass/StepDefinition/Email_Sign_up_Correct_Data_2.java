@@ -151,6 +151,7 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
 			Signout.click();
+			System.out.println("Signout from the application");
 		} catch (NoSuchElementException e) {
 
 		}
