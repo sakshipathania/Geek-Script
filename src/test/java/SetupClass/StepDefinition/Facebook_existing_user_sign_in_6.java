@@ -20,9 +20,8 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	@Given("^user is already on Home Page of Geeks Website vi$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vi() throws Throwable {
 		Thread.sleep(1000);
-		driver.get(AppURL);
-		driver.manage().deleteAllCookies();
-		Thread.sleep(4000);
+		driver.get("https://www.slidegeeks.com/");
+		
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
@@ -64,7 +63,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				driver.switchTo().window(popupWindowHandle);
 				driver.manage().window().maximize();
 
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 
 				WebElement fb_email = wait
 						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
@@ -78,7 +77,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				fb_pass.clear();
 				fb_pass.sendKeys("himanshi@123");
 
-				Thread.sleep(6000);
+				Thread.sleep(3000);
 				WebElement fb_login_btn2 = wait.until(
 						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				fb_login_btn2.click();
@@ -100,7 +99,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	public void user_download_a_paid_product_vi() throws Throwable {
 		Thread.sleep(4000);
 		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
-		Thread.sleep(7000);
+		Thread.sleep(3000);
 		 
 		 WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='download_product']")));
 		 Thread.sleep(2000);
