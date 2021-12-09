@@ -44,7 +44,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 
 	@Then("^user navigates to fb login page vii$")
 	public void user_navigates_to_fb_login_page_vii() throws Throwable {
-		WebElement fb_login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='btn btn-block btn-social btn-facebook social-btn']")));
+		WebElement fb_login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='facebook-signin-btn']")));
 		 fb_login_btn.click();
 		Thread.sleep(3000);
 	}
