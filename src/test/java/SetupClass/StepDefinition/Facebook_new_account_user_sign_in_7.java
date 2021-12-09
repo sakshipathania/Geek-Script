@@ -26,7 +26,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		//Thread.sleep(1000);
-		try {
+		/*try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			if (Signout.isEnabled()) {
 				Signout.click();
@@ -36,24 +36,8 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 			}
 		} catch (NoSuchElementException Ext) {
 
-		}
-		try {
-			boolean logout =wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).isDisplayed();
-			
-			if (logout == true) {
-				
-				wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).click();
-				
-				Thread.sleep(2000);
-				driver.navigate().refresh();
-			 Thread.sleep(2000);
-			}
-			
-			else 
-			{System.out.println("Element not dispalyed");}
-		} catch (NoSuchElementException Ext) {
-
-		}
+		}*/
+		
 			
 	    
 	}
