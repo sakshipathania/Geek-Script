@@ -94,7 +94,7 @@ public class Email_Sign_In_Incorrect_Data_3 extends SetupClass {
 		driver.get("https://www.slidegeeks.com/business/product/emerging-marketplace-strategies-growth-ppt-powerpoint-presentation-complete-deck");
 		Thread.sleep(5000);
 		 
-		 WebElement download_btn1 = driver.findElement(By.xpath("//*[@class=\"btn-download pg-button pg-addtocart pg-green-background-btn\"]"));
+		WebElement  download_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
 		 Thread.sleep(3000);
 		 download_btn1.click();
 		 Thread.sleep(3000);
