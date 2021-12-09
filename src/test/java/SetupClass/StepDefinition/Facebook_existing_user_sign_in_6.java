@@ -124,12 +124,6 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 			System.out.println("Title of the Page is --> " + pp_page_title);
 				 Thread.sleep(1000);
 	
-		try {
-			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
-			Thread.sleep(3000);
-			Signout.click();
-		} catch (NoSuchElementException e) {
-
-		}
+		
 	}
 }
