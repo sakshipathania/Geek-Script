@@ -112,14 +112,13 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 		js.executeScript("arguments[0].scrollIntoView();", Download);
 		Download.click();
 		Thread.sleep(3000);
-		/*WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("//a[@id='download_product']")));
+		WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
 		Thread.sleep(3000);
 		js.executeScript("arguments[0].scrollIntoView();", download_btn);
 		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();", download_btn);
 		Thread.sleep(3000);
-		//download_btn.click();*/
+		//download_btn.click();
 		Thread.sleep(3000);
 		 
 	    	}
@@ -134,6 +133,14 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 				 Thread.sleep(3000);
 				 log.info("Hey, I am on Home page Again after Sign out");
 				 Thread.sleep(1000);*/
-		
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+			System.out.println("Logout click successfully");
+
+		} catch (NoSuchElementException e) {
+
+		}
 	}
 }
