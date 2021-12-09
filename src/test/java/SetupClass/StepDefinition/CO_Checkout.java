@@ -34,17 +34,23 @@ public class CO_Checkout extends SetupClass {
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		Thread.sleep(1000);
-		/*try {
-			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
-			if (Signout.isEnabled()) {
-				Signout.click();
+		try {
+			boolean logout =wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).isDisplayed();
+			
+			if (logout == true) {
+				
+				wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT"))).click();
+				
 				Thread.sleep(2000);
 				driver.navigate().refresh();
 			 Thread.sleep(2000);
 			}
+			
+			else 
+			{System.out.println("Element not dispalyed");}
 		} catch (NoSuchElementException Ext) {
 
-		}*/
+		}
 		String pp_page_title = driver.getTitle();
 			System.out.println("Title of the Page is --> " + pp_page_title);
 		
