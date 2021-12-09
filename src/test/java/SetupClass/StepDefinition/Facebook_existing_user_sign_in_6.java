@@ -101,7 +101,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		driver.get("https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
 		Thread.sleep(3000);
 		 
-		 WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='download_product']")));
+		WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
 		 Thread.sleep(2000);
 		js.executeScript("arguments[0].scrollIntoView();",download_btn);
 		Thread.sleep(2000);
@@ -123,6 +123,18 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 		String pp_page_title = driver.getTitle();
 			System.out.println("Title of the Page is --> " + pp_page_title);
 				 Thread.sleep(1000);
+		
+		try {
+			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
+			Thread.sleep(3000);
+			Signout.click();
+			System.out.println("Logout click successfully");
+
+		} catch (NoSuchElementException e) {
+
+		}
+		
+		
 	
 		
 	}
