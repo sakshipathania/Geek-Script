@@ -66,7 +66,7 @@ public class Email_Sign_In_Paid_User_5 extends SetupClass {
 		driver.get("https://www.slidegeeks.com/business/product/up-skilling-vector-with-progress-in-content-writing-ppt-powerpoint-presentation-styles-professional-pdf");
 		Thread.sleep(5000);
 		 
-		 WebElement download_btn = driver.findElement(By.xpath("//*[@class=\"btn-download pg-button pg-addtocart pg-green-background-btn\"]"));
+		WebElement download_btn = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
 		 Thread.sleep(3000);
 		 download_btn.click();
 		 Thread.sleep(3000);
