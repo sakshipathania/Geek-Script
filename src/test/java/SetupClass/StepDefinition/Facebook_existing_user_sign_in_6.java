@@ -79,7 +79,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				fb_pass.sendKeys("himanshi@123");
 
 				Thread.sleep(3000);
-				/*WebElement fb_login_btn2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
+				//WebElement fb_login_btn2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				//fb_login_btn2.click();
 				Thread.sleep(3000);
 					try {
