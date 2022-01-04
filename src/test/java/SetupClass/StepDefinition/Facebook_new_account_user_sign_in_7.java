@@ -52,8 +52,8 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	@Then("^user login to website vii$")
 	public void user_login_to_website_vii() throws Throwable {
 		
-                 driver.manage().window().maximize();
-		
+             driver.manage().window().maximize();
+
 		// Store the CurrentWindow for future reference
 		// String handle = " ";
 		String currentWindow = driver.getWindowHandle();
@@ -81,27 +81,18 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 
 				fb_pass.sendKeys("vrushali@786");
 
-				// WebElement fb_login_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
+				//WebElement fb_login_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				//fb_login_btn1.click();
-				//Thread.sleep(3000);
-					
-			try {
-			if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
-				driver.findElement(By.xpath("//input[@value='Log In']")).click();
-			}
-			else {
-			WebElement fb_login = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='loginbutton']")));
-			
-			
-			fb_login.click();
-			Thread.sleep(3000);
-			}
-		} catch (NoSuchElementException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-					
+				Thread.sleep(3000);
+				if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
+					driver.findElement(By.xpath("//input[@value='Log In']")).click();
+				} else {
+					WebElement fb_login = wait
+							.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='loginbutton']")));
 
+					fb_login.click();
+					Thread.sleep(3000);
+				}
 			}
 		}
 		driver.switchTo().window(currentWindow);
