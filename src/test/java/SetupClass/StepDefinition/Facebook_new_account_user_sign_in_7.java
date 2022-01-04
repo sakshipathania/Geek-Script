@@ -81,11 +81,9 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 
 				fb_pass.sendKeys("vrushali@786");
 
-				/*WebElement fb_login_btn1 = wait.until(
-						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
-
-				fb_login_btn1.click();
-				Thread.sleep(3000);*/
+				// WebElement fb_login_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
+				//fb_login_btn1.click();
+				//Thread.sleep(3000);
 					
 			try {
 			if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
