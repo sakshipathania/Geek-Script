@@ -79,10 +79,25 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				fb_pass.sendKeys("himanshi@123");
 
 				Thread.sleep(3000);
-				WebElement fb_login_btn2 = wait.until(
+				/*WebElement fb_login_btn2 = wait.until(
 						ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				fb_login_btn2.click();
-				Thread.sleep(3000);
+				Thread.sleep(3000);*/
+					try {
+			if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
+				driver.findElement(By.xpath("//input[@value='Log In']")).click();
+			}
+			else {
+			WebElement fb_login = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='loginbutton']")));
+			
+			
+			fb_login.click();
+			Thread.sleep(3000);
+			}
+		} catch (NoSuchElementException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 				// to verify the continue button 
 				// button[normalize-space()='Yes, Continue']
 
