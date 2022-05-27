@@ -90,7 +90,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 			}
 		}
 		driver.switchTo().window(currentWindow);
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 	}
 
 	@Then("^user is redirected my dashboard page viii$")
@@ -102,7 +102,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 	public void user_download_a_free_product_viii() throws Throwable {
 		
 		driver.get("https://www.slidegeeks.com/free-downloads");
-		Thread.sleep(6000);
+		Thread.sleep(4000);
 
 		WebElement Download = wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span")));
