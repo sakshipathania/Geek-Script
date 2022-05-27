@@ -18,11 +18,17 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	@Given("^user is already on Home Page of Geeks Website vii$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vii() throws Throwable {
-		Thread.sleep(1000);
-		driver.get(AppURL);
 		
+		
+		Thread.sleep(2000);
+		driver.get("https://www.facebook.com/");
 		driver.manage().deleteAllCookies();
-		Thread.sleep(5000);
+		Thread.sleep(4000);
+		driver.navigate().refresh();
+		Thread.sleep(4000);
+		
+		driver.get(AppURL);
+
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		log.info("It's opening the website URL");
 		//Thread.sleep(1000);
@@ -74,12 +80,12 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 
 				fb_email.clear();
-				fb_email.sendKeys("amw.vrushali@gmail.com");
+				fb_email.sendKeys("ritapahwa08@gmail.com");
 
 				WebElement fb_pass = wait
 						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
 
-				fb_pass.sendKeys("vrushali@786");
+				fb_pass.sendKeys("Qwerty@1");
 
 				WebElement fb_login_btn1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//input[contains(@value,'Log In')]")));
 				fb_login_btn1.click();
