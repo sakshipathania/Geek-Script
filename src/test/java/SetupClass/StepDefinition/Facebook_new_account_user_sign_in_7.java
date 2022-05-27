@@ -93,7 +93,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 
 	@Then("^user is redirected my dashboard page vii$")
 	public void user_is_redirected_my_dashboard_page_vii() throws Throwable {
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		log.info("Hey, I am on Pricing");
 		System.out.println("pricing url is " + driver.getCurrentUrl());
 	}
@@ -132,7 +132,7 @@ public class Facebook_new_account_user_sign_in_7 extends SetupClass {
 				// Thread.sleep(1000);
 		//WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("*//a[contains(@href,'logout')]")));
 		//WebElement Signout = driver.findElement(By.xpath("//a[@href ='/logout']"));
-		Thread.sleep(6000);
+		
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
