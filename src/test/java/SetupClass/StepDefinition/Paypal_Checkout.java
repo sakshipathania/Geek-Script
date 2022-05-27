@@ -108,14 +108,14 @@ public class Paypal_Checkout extends SetupClass {
 	public void user_is_redirected_to_pricing_page_and_choose_the_plan_to_pay() throws Throwable {
 		try {
 			WebElement Business_Team = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div/div/button[2]")));
+					.elementToBeClickable(By.xpath("//button[@onclick="if (!window.__cfRLUnblockHandlers) return false; pricingbutton(event, 'Business')"]")));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();", Business_Team);
 			js.executeScript("arguments[0].click();", Business_Team);
 			Thread.sleep(2000);
 
 			WebElement Subscribe_btn = driver.findElement(By.xpath(
-					"/html/body/div[1]/div[2]/div/div[2]/div[2]/div/div[2]/div/div[3]/div[3]/span/form/span/button"));
+					"//div[@id='Individual']//form[@name='hikashop_product_form_99148_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]"));
 			js.executeScript("arguments[0].scrollIntoView();", Subscribe_btn);
 			Thread.sleep(3000);
 			js.executeScript("arguments[0].click();", Subscribe_btn);
@@ -141,7 +141,7 @@ public class Paypal_Checkout extends SetupClass {
 		
 		    try
 		{
-			WebElement cp_btn  = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/input[1]"));
+			WebElement cp_btn  = driver.findElement(By.xpath("//label[@for='payment_radio_1_2__paypal_1']"));
 			Thread.sleep(2000);
 		    cp_btn.click();
 		    Thread.sleep(3000);
@@ -153,7 +153,7 @@ public class Paypal_Checkout extends SetupClass {
 		Thread.sleep(1000);
 		   try {
 			
-		 WebElement place_order_btn  =  driver.findElement(By.cssSelector("body > div.afterBody.checkout-wrapper.main-wrapper.no-left-menu > div.main_wrapper > div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
+		 WebElement place_order_btn  =  driver.findElement(By.xpath("//button[@id='hikabtn_checkout_next']> div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);	
 			//js.executeScript("arguments[0].click();", place_order_btn);
@@ -170,7 +170,7 @@ public class Paypal_Checkout extends SetupClass {
 	public void paypal_popup_appears_and_user_navigates_back_to_my_account_pp() throws Throwable {
 	         
 		Thread.sleep(1000);
-		try {
+		/*try {
 
 			WebElement place_order_btn = driver.findElement(By.cssSelector(
 					"body > div.afterBody.checkout-wrapper.main-wrapper.no-left-menu > div.main_wrapper > div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
@@ -181,7 +181,7 @@ public class Paypal_Checkout extends SetupClass {
 			place_order_btn.click();
 			Thread.sleep(5000);
 		} catch (NoSuchElementException popup) {
-		}
+		}*/
 
 		String pp_page_URL = driver.getCurrentUrl();
 		System.out.println("URL of the Page is --> " + pp_page_URL);
