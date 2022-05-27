@@ -153,7 +153,7 @@ public class Paypal_Checkout extends SetupClass {
 		Thread.sleep(1000);
 		   try {
 			
-		 WebElement place_order_btn  =  driver.findElement(By.xpath("//button[@id='hikabtn_checkout_next']> div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
+		 WebElement place_order_btn  =  driver.findElement(By.xpath("//button[@id='hikabtn_checkout_next']"));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();",place_order_btn);	
 			//js.executeScript("arguments[0].click();", place_order_btn);
@@ -195,7 +195,7 @@ public class Paypal_Checkout extends SetupClass {
 			String pp_page_title = driver.getTitle();
 			System.out.println("Title of the Page is --> " + pp_page_title);
 
-			Assert.assertTrue("title does not matched", driver.getTitle().contains("Log in to your PayPal account"));
+			//Assert.assertTrue("title does not matched", driver.getTitle().contains("Log in to your PayPal account"));
 
 			Thread.sleep(1000);
 
@@ -213,19 +213,45 @@ public class Paypal_Checkout extends SetupClass {
 	@Then("^user Signout account PP$")
 	public void user_Signout_account_PP() throws Throwable {
 		Thread.sleep(3000);
-	        driver.get("https://www.slidegeeks.com/component/pago/checkout");
+	       
+		Thread.sleep(3000);
+		driver.get("https://www.slidegeeks.com/checkout");
 		Thread.sleep(2000);
-		
-		
-		 	try {
-			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
-			Thread.sleep(3000);
-			Signout.click();
-			System.out.println("Logout click successfully");
 
-		} catch (NoSuchElementException e) {
+		// driver.get("https://www.slidegeeks.com/component/pago/checkout");
+		// Thread.sleep(2000);
+		WebElement Account = driver.findElement(
+				By.xpath("/html/body/div[1]/header/div/div/nav/div/div[2]/div[2]/div[2]/div/div[2]/ul/li[1]/a"));
+		Thread.sleep(3000);
+		Account.click();
+		Thread.sleep(3000);
+		WebElement Delete_Account = driver
+				.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/div/div[2]/div/ul/li[6]/a"));
+		Thread.sleep(3000);
+		js.executeScript("arguments[0].scrollIntoView();", Delete_Account);
+		Thread.sleep(3000);
+		Delete_Account.click();
+		Thread.sleep(3000);
+		WebElement Delete_Account_reason = driver.findElement(By.cssSelector("#only-free-download-product"));
+		Thread.sleep(3000);
+		Delete_Account_reason.click();
+		Thread.sleep(3000);
+		WebElement Delete_Profile = driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div/div[3]/button[1]"));
+		Thread.sleep(3000);
+		Delete_Profile.click();
+		Thread.sleep(3000);
+		WebElement No_Delete = driver.findElement(By.xpath("/html/body/div[1]/div[5]/div/div/div[3]/button[2]"));
+		Thread.sleep(3000);
+		No_Delete.click();
+		Thread.sleep(5000);
+		String verifyDeleteAccountMessage = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='alert-message login-sucesmsg']")))
+				.getText();
+		System.out.println("verifyText1 = " + verifyDeleteAccountMessage);
 
-		}
+		Assert.assertTrue("Your are not on paypal page",
+				verifyDeleteAccountMessage.contentEquals("Your Account has been deleted successfully."));
+		Thread.sleep(3000);
 	}
 
 
