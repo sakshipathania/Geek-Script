@@ -48,7 +48,7 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 		 name.sendKeys("hello moto");
 		 Thread.sleep(3000);
 		 
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email"));
+		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email")));
 		 Thread.sleep(3000);
 		 new_email.sendKeys("%^YMNGDJMWSD");
 		 Thread.sleep(3000);
@@ -83,7 +83,7 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 		 Thread.sleep(3000);
 		 name.clear();
 		 
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email"));
+		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email")));
 						  
 		 Thread.sleep(3000);
 		 new_email.clear();
@@ -140,7 +140,7 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass{
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 				Thread.sleep(2000);
 				
-				WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email"));
+				WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email")));
 				 Thread.sleep(3000);
 				 new_email.sendKeys(full_email);
 				 Thread.sleep(3000);
