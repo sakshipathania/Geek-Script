@@ -120,7 +120,7 @@ public class CO_Checkout extends SetupClass {
 		// choose a plan
 		try {
 			WebElement Subscribe_btn = driver.findElement(By.xpath(
-					"/html/body/div[1]/div[2]/div/div[2]/div[2]/div/div[1]/div/div[3]/div[3]/span/form/span/button"));
+					"//div[@id='Individual']//form[@name='hikashop_product_form_205548_hikashop_category_information_menu_117']//span[contains(text(),'Join now')]"));
 			js.executeScript("arguments[0].scrollIntoView();", Subscribe_btn);
 			Thread.sleep(2000);
 			Subscribe_btn.click();
@@ -148,7 +148,7 @@ public class CO_Checkout extends SetupClass {
 			String radio_button_url = driver.getCurrentUrl();
 			System.out.println("radio_button_url = " + radio_button_url);
 			WebElement co_btn = driver.findElement(By.xpath(
-					"/html[1]/body[1]/div[1]/div[4]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]"));
+					"//label[@for='payment_radio_1_2__stripe_2']"));
 			Thread.sleep(2000);
 			co_btn.click();
 			Thread.sleep(5000);
@@ -158,8 +158,8 @@ public class CO_Checkout extends SetupClass {
 		// place order button
 		try {
 
-			WebElement place_order_btn = driver.findElement(By.cssSelector(
-					"body > div.afterBody.checkout-wrapper.main-wrapper.no-left-menu > div.main_wrapper > div > div.checkout-inner-wrapper > div.checkout-box-wrapper.checkout-order > div > div > table > tbody > tr:nth-child(4) > td:nth-child(1) > button.btn.primary-btn.pg-button.pg-checkout-continue"));
+			WebElement place_order_btn = driver.findElement(By.xpath(
+					"//button[@id='hikabtn_checkout_next']"));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();", place_order_btn);
 			// js.executeScript("arguments[0].click();", place_order_btn);
