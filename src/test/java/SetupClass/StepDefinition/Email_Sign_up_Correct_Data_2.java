@@ -50,10 +50,10 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	@Then("^user enter name ii$")
 	public void user_enter_name_ii() throws Throwable {
 		
-		 WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.id("jform_name1")));
-		 Thread.sleep(3000);
+		 WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_name")));
+		 //Thread.sleep(3000);
 		 name.sendKeys("Automated Program");
-		 Thread.sleep(3000);
+		 //Thread.sleep(3000);
 	   
 	}
 
@@ -81,7 +81,7 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 		Thread.sleep(2000);
 		
-		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.id("jform_email1")));
+		WebElement new_email = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_email")));
 		 Thread.sleep(3000);
 		 new_email.sendKeys(full_email);
 		 Thread.sleep(3000);
@@ -91,14 +91,14 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	@Then("^user enter password and confirm password ii$")
 	public void user_enter_password_and_confirm_password_ii() throws Throwable {
 		
-		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.id("jform_password1")));
+		WebElement password = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_password")));
 		 Thread.sleep(3000);
-		password.sendKeys("Geeks@123");
+		 password.sendKeys("Geeks@123");
 		 Thread.sleep(3000);
 		 
-		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.id("jform_password2")));
+		 WebElement confirm_passwoed = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_password2")));
 		 Thread.sleep(3000);
-		confirm_passwoed.sendKeys("Geeks@123");
+		 confirm_passwoed.sendKeys("Geeks@123");
 		 Thread.sleep(3000);
 	    
 	}
@@ -106,9 +106,9 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	@Then("^user enter captcha ii$")
 	public void user_enter_captcha_ii() throws Throwable {
 		
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.id("captchtext")));
+		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
 		 Thread.sleep(3000);
-		captcha.sendKeys("Y3Tt6bfwI");
+		 captcha.sendKeys("Y3Tt6bfwI");
 		 Thread.sleep(3000);
 	    
 	}
@@ -122,7 +122,7 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 		 Thread.sleep(5000);
 		 
 		driver.get("https://www.slidegeeks.com/free-downloads");
-		Thread.sleep(6000);
+		Thread.sleep(5000);
 		
 		WebElement Download= driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span"));
 		
