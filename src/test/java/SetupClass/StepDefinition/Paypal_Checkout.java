@@ -108,7 +108,7 @@ public class Paypal_Checkout extends SetupClass {
 	public void user_is_redirected_to_pricing_page_and_choose_the_plan_to_pay() throws Throwable {
 		try {
 			WebElement Business_Team = wait.until(ExpectedConditions
-					.elementToBeClickable(By.xpath("//button[@onclick="if (!window.__cfRLUnblockHandlers) return false; pricingbutton(event, 'Business')"]")));
+					.elementToBeClickable(By.xpath("//button[@onclick=\"if (!window.__cfRLUnblockHandlers) return false; pricingbutton(event, 'Business')\"]")));
 			Thread.sleep(2000);
 			js.executeScript("arguments[0].scrollIntoView();", Business_Team);
 			js.executeScript("arguments[0].click();", Business_Team);
