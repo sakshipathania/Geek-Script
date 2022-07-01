@@ -2,8 +2,9 @@ package SetupClass;
 
 import java.io.FileReader;
 import java.util.Properties;
-import java.util.logging.Logger;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -24,8 +25,7 @@ public class SetupClass {
 	public static WebElement webelement;
 	public static String local_chrome;
 	public static String local_FFbrowser;
-	
-	
+
 	@BeforeClass
 	public static void before_Class() throws Exception {
 		log = Logger.getLogger(BeforeClass.class.getName());
@@ -36,7 +36,7 @@ public class SetupClass {
 		// on source lab setup
 		AppURL = property.getProperty("App_url");
 		System.out.println("Bname=====" + AppURL);
-	
+
 		if ((local_chrome.equals("yes"))) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
@@ -62,19 +62,17 @@ public class SetupClass {
 
 		driver.get(AppURL);
 		Thread.sleep(2000);
-	    driver.manage().deleteAllCookies();
-	    Thread.sleep(2000);
+		driver.manage().deleteAllCookies();
+		Thread.sleep(2000);
 
-			
-		}
-	
-	
+	}
+
 	@AfterClass
 	public static void after_Class() throws InterruptedException {
 		Thread.sleep(2000);
-		driver.quit();  //->> don't want to close the browser for now
+		driver.quit(); // ->> don't want to close the browser for now
 		Thread.sleep(2000);
-	
+
 	}
 
 }
