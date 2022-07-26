@@ -21,11 +21,9 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 
 	@Given("^user is already on Website Home Page i$")
 	public void user_is_already_on_Website_Home_Page_i() throws Throwable {
-		driver.manage().deleteAllCookies();
-		Thread.sleep(3000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");
-		Thread.sleep(1000);
+		driver.get(AppURL);
+		ClearBrowserCache();
+		Thread.sleep(2000);
 
 	}
 
@@ -182,28 +180,14 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 		register_btn.click();
 		Thread.sleep(5000);
 
-		driver.get("https://www.slidegeeks.com/free-downloads");
-		Thread.sleep(6000);
+		WebElement free_Slides = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("FREE SLIDES")));
+		free_Slides.click();
 
-		WebElement Download = driver.findElement(
-				By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span"));
+		// select PPT
 
-		// WebElement Download = (WebElement)js.executeScript("('a.btn-download')", "");
-		Thread.sleep(3000);
-		js.executeScript("arguments[0].scrollIntoView();", Download);
-		Download.click();
-		Thread.sleep(3000);
-
-		/*
-		 * try { // Log out WebElement login_btn =
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.
-		 * cssSelector("body > div.afterBody.product-page-wrapper > header > div > div > nav > div > div.rgth_sechedr > div.navigation_wrapper > div.social_right > div > div.contact.login-option > ul > li:nth-child(2) > a"
-		 * ))); Thread.sleep(3000); login_btn.click(); Thread.sleep(3000);
-		 * log.info("Hey, I am on Home page Again after Sign out"); Thread.sleep(1000);
-		 * } catch (Exception e) { // TODO: handle exception
-		 * 
-		 * Thread.sleep(1000); }
-		 */
+		WebElement downloadPPt = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]/span[1]")));
+		downloadPPt.click();
 
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));

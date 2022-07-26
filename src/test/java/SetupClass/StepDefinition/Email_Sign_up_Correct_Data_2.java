@@ -3,6 +3,7 @@ package SetupClass.StepDefinition;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,12 +23,8 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	@Given("^user is already on Website Home Page ii$")
 	public void user_is_already_on_Website_Home_Page_ii() throws Throwable {
 		driver.get(AppURL);
-		Thread.sleep(1000);
-		driver.manage().deleteAllCookies();
-		Thread.sleep(3000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");
-		Thread.sleep(1000);
+		ClearBrowserCache();
+		Thread.sleep(2000);
 
 	}
 
@@ -52,9 +49,7 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 	public void user_enter_name_ii() throws Throwable {
 
 		WebElement name = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#register_name")));
-		// Thread.sleep(3000);
 		name.sendKeys("Automated Program");
-		// Thread.sleep(3000);
 
 	}
 
@@ -123,28 +118,19 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 		register_btn.click();
 		Thread.sleep(5000);
 
-		driver.get("https://www.slidegeeks.com/free-downloads");
-		Thread.sleep(5000);
+		String actual_URL = driver.getCurrentUrl();
+		String expected_URL = "https://www.slidegeeks.com/subscriptions";
+		Assert.assertEquals("user is not on the pricing page after login with free account", expected_URL, actual_URL);
 
-		WebElement Download = driver.findElement(
-				By.xpath("/html/body/div[1]/div[3]/div/section[2]/div/div/div[1]/div/div[2]/div[1]/div/div/p/a/span"));
+		WebElement free_Slides = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("FREE SLIDES")));
+		free_Slides.click();
 
-		// WebElement Download = (WebElement)js.executeScript("('a.btn-download')", "");
-		Thread.sleep(3000);
-		js.executeScript("arguments[0].scrollIntoView();", Download);
-		Download.click();
-		Thread.sleep(3000);
+		// select PPT
 
-		/*
-		 * try { // Log out WebElement login_btn =
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.
-		 * cssSelector(".t3-navbar > ul:nth-child(1) > li:nth-child(10) > a:nth-child(1)"
-		 * ))); Thread.sleep(3000); login_btn.click(); Thread.sleep(3000);
-		 * log.info("Hey, I am on Home page Again after Sign out"); Thread.sleep(1000);
-		 * } catch (Exception e) { // TODO: handle exception
-		 * 
-		 * Thread.sleep(1000); }
-		 */
+		WebElement downloadPPt = wait.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]/span[1]")));
+		downloadPPt.click();
+
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);

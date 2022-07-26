@@ -7,11 +7,13 @@ import java.util.logging.Logger;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,6 +27,8 @@ public class SetupClass {
 	public static WebElement webelement;
 	public static String local_chrome;
 	public static String local_FFbrowser;
+	public static WebDriverWait wait;
+	public static JavascriptExecutor js;
 
 	@BeforeClass
 	public static void before_Class() throws Exception {
@@ -44,6 +48,8 @@ public class SetupClass {
 			driver = new ChromeDriver(options);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			wait = new WebDriverWait(driver, 30);
+			js = (JavascriptExecutor) driver;
 			Thread.sleep(1000);
 		}
 		// if (browser.equalsIgnoreCase("firefox"))
@@ -52,7 +58,10 @@ public class SetupClass {
 		else if ((local_FFbrowser.equals("yes"))) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+			wait = new WebDriverWait(driver, 30);
+			js = (JavascriptExecutor) driver;
 
 			Thread.sleep(1000);
 		} else {
@@ -60,10 +69,33 @@ public class SetupClass {
 			System.out.println("platform does not provide");
 		}
 
-		driver.get(AppURL);
+	}
+
+	public static void ClearBrowserCache() throws Throwable {
+
+		driver.manage().deleteAllCookies();
+		Thread.sleep(4000); // wait 7 seconds to clear cookies.
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+	}
+
+	public static void ClearfacebookCache() throws Throwable {
+		Thread.sleep(2000);
+		driver.get("https://www.facebook.com/");
+		driver.manage().deleteAllCookies();
+		Thread.sleep(3000);
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+
+	}
+
+	public static void ClearGoggleCache() throws Throwable {
+		Thread.sleep(2000);
+		driver.get("https://mail.google.com/mail/u/0/#inbox");
 		Thread.sleep(2000);
 		driver.manage().deleteAllCookies();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		driver.navigate().refresh();
 
 	}
 

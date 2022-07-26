@@ -20,23 +20,10 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
 	@Given("^user is already on Home Page of Geeks Website vi$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_vi() throws Throwable {
-		Thread.sleep(1000);
-		driver.get("https://www.slidegeeks.com/");
-		driver.manage().deleteAllCookies();
-		Thread.sleep(4000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");
-		Thread.sleep(1000);
-		/*
-		 * try { WebElement Signout =
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
-		 * if (Signout.isEnabled()) { Signout.click(); Thread.sleep(2000);
-		 * driver.navigate().refresh(); Thread.sleep(2000); } } catch
-		 * (NoSuchElementException Ext) {
-		 * 
-		 * }
-		 */
-
+		ClearfacebookCache();
+		driver.get(AppURL);
+		ClearBrowserCache();
+		Thread.sleep(3000);
 	}
 
 	@Then("^user navigates to fb login page vi$")
@@ -134,13 +121,6 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	@Then("^user signout of website vi$")
 	public void user_signout_of_website_vi() throws Throwable {
 
-		// Log out
-		/*
-		 * WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.
-		 * cssSelector("body > div.afterBody.signin-page-wrapper.main-wrapper > header > div > div > nav > div > div.rgth_sechedr > div.navigation_wrapper > div.social_right > div > div.contact.login-option > ul > li:nth-child(2) > a"
-		 * ))); Thread.sleep(3000); login_btn.click(); Thread.sleep(3000);
-		 * log.info("Hey, I am on Home page Again after Sign out");
-		 */
 		String pp_page_title = driver.getTitle();
 		System.out.println("Title of the Page is --> " + pp_page_title);
 		Thread.sleep(1000);

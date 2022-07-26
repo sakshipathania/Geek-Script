@@ -20,13 +20,10 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 
 	@Given("^user is already on Home Page of Geeks Website viii$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_viii() throws Throwable {
-
+		ClearGoggleCache();
 		driver.get(AppURL);
-		driver.manage().deleteAllCookies();
-		Thread.sleep(4000);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		log.info("It's opening the website URL");
-		Thread.sleep(1000);
+		ClearBrowserCache();
+		Thread.sleep(2000);
 
 	}
 
@@ -129,13 +126,7 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 	@Then("^user signout of website viii$")
 	public void user_signout_of_website_viii() throws Throwable {
 
-		// Log out
-		/*
-		 * WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.
-		 * cssSelector("body > div.afterBody.signin-page-wrapper.main-wrapper > header > div > div > nav > div > div.rgth_sechedr > div.navigation_wrapper > div.social_right > div > div.contact.login-option > ul > li:nth-child(2) > a"
-		 * ))); Thread.sleep(3000); login_btn.click(); Thread.sleep(3000);
-		 * log.info("Hey, I am on Home page Again after Sign out"); Thread.sleep(1000);
-		 */
+		
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
