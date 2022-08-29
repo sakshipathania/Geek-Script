@@ -16,8 +16,7 @@ import io.cucumber.java.en.Then;
 
 public class Email_Sign_In_Free_User_4 extends SetupClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 30);
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	
 
 	@Given("^user is already on Home Page of Geeks Website iv$")
 	public void user_is_already_on_Home_Page_of_Geeks_Website_iv() throws Throwable {
