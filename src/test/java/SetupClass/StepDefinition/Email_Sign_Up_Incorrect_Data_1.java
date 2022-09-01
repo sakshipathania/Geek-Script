@@ -188,11 +188,12 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 		WebElement downloadPPt = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]/span[1]")));
 		downloadPPt.click();
+		Thread.sleep(3000);
 
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);
-			Signout.click();
+			js.executeScript("arguments[0].click();", Signout);
 			System.out.println("Signout from the application");
 		} catch (NoSuchElementException e) {
 
