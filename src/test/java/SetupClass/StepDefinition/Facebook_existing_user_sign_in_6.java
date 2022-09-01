@@ -95,7 +95,6 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 	@Then("^user is redirected my dashboard page vi$")
 	public void user_is_redirected_my_dashboard_page_vi() throws Throwable {
 		log.info("Hey, I am on Pricing");
-		Thread.sleep(4000);
 	}
 
 	@Then("^user download a paid product vi$")
@@ -103,19 +102,25 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
 		Thread.sleep(4000);
 		System.out.println("page = " + driver.getCurrentUrl());
-		driver.get(
-				"https://www.slidegeeks.com/business/product/company-vulnerability-administration-ppt-powerpoint-presentation-complete-deck-with-slides");
+		WebElement popular_PPt = wait
+				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Most Popular']")));
+		Thread.sleep(3000);
+		popular_PPt.click();
 		Thread.sleep(3000);
 
-		WebElement download_btn = wait
+		// Select any of one PPT
+
+		WebElement select_Ppt = wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//div[2]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]")));
+		Thread.sleep(3000);
+		select_Ppt.click();
+		Thread.sleep(3000);
+
+		WebElement download_btn1 = wait
 				.until(ExpectedConditions.elementToBeClickable(By.linkText("Download this Presentation")));
-		Thread.sleep(2000);
-		js.executeScript("arguments[0].scrollIntoView();", download_btn);
-		Thread.sleep(2000);
-		// download_btn.click();
-		js.executeScript("arguments[0].click();", download_btn);
 		Thread.sleep(3000);
-
+		download_btn1.click();
+		Thread.sleep(3000);
 	}
 
 	@Then("^user signout of website vi$")

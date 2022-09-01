@@ -130,6 +130,7 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 		WebElement downloadPPt = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("//div[2]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]/span[1]")));
 		downloadPPt.click();
+		Thread.sleep(3000);
 
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
