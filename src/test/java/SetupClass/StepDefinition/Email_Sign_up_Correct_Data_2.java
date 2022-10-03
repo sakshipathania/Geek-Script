@@ -101,11 +101,12 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 
 	@Then("^user enter captcha ii$")
 	public void user_enter_captcha_ii() throws Throwable {
-
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		Thread.sleep(3000);
-		captcha.sendKeys("Y3Tt6bfwI");
-		Thread.sleep(3000);
+		/*
+		 * WebElement captcha =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+		 * "#captchtext"))); Thread.sleep(3000); captcha.sendKeys("Y3Tt6bfwI");
+		 * Thread.sleep(3000);
+		 */
 
 	}
 
