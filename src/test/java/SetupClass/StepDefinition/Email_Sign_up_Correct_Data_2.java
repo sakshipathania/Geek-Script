@@ -37,6 +37,8 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 			Thread.sleep(3000);
 			login_signup_btn.click();
 			Thread.sleep(3000);
+			driver.get("https://www.slidegeeks.com/register?973=958");
+			Thread.sleep(3000);
 		} catch (NoSuchElementException e) {
 
 		}
@@ -118,6 +120,8 @@ public class Email_Sign_up_Correct_Data_2 extends SetupClass {
 		Thread.sleep(3000);
 		register_btn.click();
 		Thread.sleep(5000);
+		
+		
 
 		String actual_URL = driver.getCurrentUrl();
 		String expected_URL = "https://www.slidegeeks.com/subscriptions";

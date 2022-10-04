@@ -35,6 +35,8 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 			Thread.sleep(3000);
 			login_signup_btn.click();
 			Thread.sleep(3000);
+			driver.get("https://www.slidegeeks.com/register?103=918");
+			Thread.sleep(3000);
 		} catch (NoSuchElementException e) {
 
 		}
