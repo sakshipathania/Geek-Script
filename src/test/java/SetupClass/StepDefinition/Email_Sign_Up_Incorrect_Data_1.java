@@ -79,6 +79,8 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 		Thread.sleep(3000);
 		register_btn.click();
 		Thread.sleep(3000);
+		driver.get("https://www.slidegeeks.com/register?303=918");
+		Thread.sleep(3000);
 
 	}
 
@@ -106,10 +108,11 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 		confirm_passwoed.clear();
 		Thread.sleep(3000);
 
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		Thread.sleep(3000);
-		captcha.clear();
-		Thread.sleep(3000);
+		/*
+		 * WebElement captcha =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+		 * "#captchtext"))); Thread.sleep(3000); captcha.clear(); Thread.sleep(3000);
+		 */
 
 	}
 
@@ -169,10 +172,12 @@ public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 	@Then("^user enter valid captcha i$")
 	public void user_enter_valid_captcha_i() throws Throwable {
 
-		WebElement captcha = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#captchtext")));
-		Thread.sleep(3000);
-		captcha.sendKeys("Y3Tt6bfwI");
-		Thread.sleep(3000);
+		/*
+		 * WebElement captcha =
+		 * wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
+		 * "#captchtext"))); Thread.sleep(3000); captcha.sendKeys("Y3Tt6bfwI");
+		 * Thread.sleep(3000);
+		 */
 	}
 
 	@Then("^user click on register button to complete sign up i$")
