@@ -16,7 +16,7 @@ import io.cucumber.java.en.Then;
 
 public class Email_Sign_Up_Incorrect_Data_1 extends SetupClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 50);
+	
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@Given("^user is already on Website Home Page i$")

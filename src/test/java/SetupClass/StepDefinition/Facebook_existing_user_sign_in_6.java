@@ -15,7 +15,7 @@ import io.cucumber.java.en.Then;
 
 public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@Given("^user is already on Home Page of Geeks Website vi$")
@@ -56,13 +56,13 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']")));
 				// Thread.sleep(3000);
 				fb_email.clear();
-				fb_email.sendKeys("slidetech.qa@gmail.com");
+				fb_email.sendKeys("sumit.kumar@slidetech.in");
 				Thread.sleep(3000);
 				WebElement fb_pass = wait
 						.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='pass']")));
 				// Thread.sleep(3000);
 				fb_pass.clear();
-				fb_pass.sendKeys("himanshi@123");
+				fb_pass.sendKeys("redhat2090");
 
 				Thread.sleep(3000);
 				// WebElement fb_login_btn2 =
@@ -71,8 +71,13 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 				// fb_login_btn2.click();
 				Thread.sleep(3000);
 				try {
-					if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
+					if (!driver.findElements(By.xpath("//input[@value='Log in']")).isEmpty()) {
+						driver.findElement(By.xpath("//input[@value='Log in']")).click();
+					}
+
+					else if (!driver.findElements(By.xpath("//input[@value='Log In']")).isEmpty()) {
 						driver.findElement(By.xpath("//input[@value='Log In']")).click();
+
 					} else {
 						WebElement fb_login = wait.until(
 								ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='loginbutton']")));
@@ -102,6 +107,7 @@ public class Facebook_existing_user_sign_in_6 extends SetupClass {
 
 		Thread.sleep(4000);
 		System.out.println("page = " + driver.getCurrentUrl());
+		Thread.sleep(4000);
 		WebElement popular_PPt = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[normalize-space()='Most Popular']")));
 		Thread.sleep(3000);

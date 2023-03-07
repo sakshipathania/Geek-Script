@@ -15,7 +15,6 @@ import io.cucumber.java.en.Then;
 
 public class Google_new_user_sign_up_8 extends SetupClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 30);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@Given("^user is already on Home Page of Geeks Website viii$")
@@ -126,7 +125,6 @@ public class Google_new_user_sign_up_8 extends SetupClass {
 	@Then("^user signout of website viii$")
 	public void user_signout_of_website_viii() throws Throwable {
 
-		
 		try {
 			WebElement Signout = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("LOGOUT")));
 			Thread.sleep(3000);

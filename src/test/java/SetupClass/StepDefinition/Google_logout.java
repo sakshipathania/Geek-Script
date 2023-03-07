@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 
 public class Google_logout extends SetupClass {
 
-	WebDriverWait wait = new WebDriverWait(driver, 50);
+	
 
 	@Given("^open the google plus page\\.$")
 	public void open_the_google_plus_page() throws InterruptedException {
